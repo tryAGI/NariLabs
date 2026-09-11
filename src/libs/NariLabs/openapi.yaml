@@ -1,0 +1,349 @@
+openapi: 3.1.0
+info:
+  title: Text to Speech
+  version: 1.0.0
+paths:
+  /v1/voices:
+    get:
+      operationId: listVoices
+      summary: List voices
+      description: |
+        Returns the complete voice catalog for a TTS model.
+        Requires an API key and does not consume generation allowance or credits.
+      tags:
+        - voices
+      parameters:
+        - name: model
+          in: query
+          description: Exact TTS model slug used for speech generation.
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: A Nari API key created in the Dashboard.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Complete voice catalog.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoiceList'
+        '400':
+          description: Missing, duplicate or unsupported query parameters return INVALID_VOICES_REQUEST.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: The API key is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The requested model does not exist or is not available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Catalog not configured or catalog/authentication backend unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/audio/speech:
+    post:
+      operationId: generateSpeech
+      summary: Generate speech
+      description: |
+        Converts complete text to WAV or raw PCM audio. Set `stream: true` for progressive delivery.
+
+        The JSON body must fit within 64 KiB. Unknown fields, explicit `null` values, and
+        incorrect field types return `400`. Omit optional fields to use their defaults.
+      tags:
+        - speech
+      parameters:
+        - name: Authorization
+          in: header
+          description: A Nari API key created in the Dashboard.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: |
+            Binary audio containing 24 kHz, signed 16-bit little-endian, mono samples.
+            The content type is `audio/wav` for WAV or `audio/pcm` for raw PCM.
+
+            See [Streaming audio](/streaming-audio) for playback and interrupted-stream handling.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: |
+            Invalid JSON, unknown fields, explicit nulls, missing required values, invalid types,
+            or excessive trimmed input length return INVALID_SPEECH_REQUEST.
+            Unsupported formats return UNSUPPORTED_RESPONSE_FORMAT. Voice validation can return
+            INVALID_VOICE or INVALID_VOICE_LANGUAGE.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: The API key is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '402':
+          description: The organization does not have enough credits for the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Partner models require early access.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The requested model does not exist or is not available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '413':
+          description: >-
+            The complete JSON request body exceeds 65,536 bytes or the inference service rejects the forwarded body
+            size.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: A concurrency, free-tier, or upstream rate limit was reached.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Speech generation failed before audio delivery started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: |
+            A required platform or inference dependency is unavailable, or the inference service
+            returned an unexpected response. Known input errors return 400 or 413 instead.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpeechRequest'
+servers:
+  - url: https://api.narilabs.com
+    description: Production
+components:
+  schemas:
+    VoiceListObject:
+      type: string
+      enum:
+        - list
+      title: VoiceListObject
+    VoiceObject:
+      type: string
+      enum:
+        - voice
+      title: VoiceObject
+    VoiceAccent:
+      type: string
+      enum:
+        - american
+        - australian
+        - british
+        - canadian
+        - castilian
+        - indian
+        - irish
+        - jamaican
+        - new_zealand
+        - nigerian
+      description: Optional accent metadata for display and filtering.
+      title: VoiceAccent
+    VoiceGender:
+      type: string
+      enum:
+        - female
+        - male
+        - neutral
+      title: VoiceGender
+    Voice:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          $ref: '#/components/schemas/VoiceObject'
+        display_name:
+          type: string
+        language:
+          type: string
+          description: Assigned generation language code. Omitted or auto speech language resolves to this value.
+        accent:
+          $ref: '#/components/schemas/VoiceAccent'
+          description: Optional accent metadata for display and filtering.
+        gender:
+          $ref: '#/components/schemas/VoiceGender'
+        description:
+          type: string
+        preview_url:
+          type: string
+          format: uri
+          description: Optional HTTPS URL of a prerecorded sample.
+      required:
+        - id
+        - object
+        - display_name
+        - language
+        - gender
+        - description
+      title: Voice
+    VoiceList:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/VoiceListObject'
+        model:
+          type: string
+        catalog_version:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Voice'
+      required:
+        - object
+        - model
+        - catalog_version
+        - data
+      title: VoiceList
+    ErrorResponseError:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+        message:
+          type: string
+          description: Human-readable explanation.
+        requestId:
+          type: string
+          description: Request identifier, also returned in the x-request-id header.
+      required:
+        - code
+        - message
+        - requestId
+      title: ErrorResponseError
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponseError'
+      required:
+        - error
+      title: ErrorResponse
+    SpeechRequestModel:
+      type: string
+      enum:
+        - qwen3-tts
+        - qwen3-tts-fast
+        - qwen3-tts:free
+        - qwen3-tts-fast:free
+      description: |
+        Select Standard or Fast. Append `:free` for Free access.
+      title: SpeechRequestModel
+    SpeechRequestResponseFormat:
+      type: string
+      enum:
+        - wav
+        - pcm
+      default: wav
+      description: |
+        `wav` includes a WAV header; `pcm` returns raw audio samples.
+        Both formats support streaming.
+      title: SpeechRequestResponseFormat
+    SpeechRequest:
+      type: object
+      properties:
+        model:
+          $ref: '#/components/schemas/SpeechRequestModel'
+          description: |
+            Select Standard or Fast. Append `:free` for Free access.
+        input:
+          type: string
+          minLength: 1
+          description: |
+            Complete text. Surrounding whitespace is removed before validation, synthesis and usage
+            measurement. The trimmed text must contain 1–2,048 Unicode code points; otherwise the
+            request returns 400 INVALID_SPEECH_REQUEST. Split longer text at sentence boundaries.
+
+            Use [normal capitalization and punctuation](/generate-speech#prepare-your-text);
+            all-lowercase or unpunctuated text can severely degrade speech quality.
+        voice:
+          type: string
+          description: |
+            Case-sensitive voice ID from [List voices](/api-reference/text-to-speech/voices/list-voices)
+            for the same model. The selected voice determines the language.
+        language:
+          type: string
+          minLength: 1
+          default: auto
+          description: |
+            Use `auto` or omit to use the voice's language. An explicit code, such as `en` or `es`,
+            must match the selected voice's language. This does not translate the input.
+        seed:
+          type: integer
+          minimum: 0
+          maximum: 4294967295
+          default: 0
+          description: |
+            Send a different seed to request another variation. The seed used is returned in `x-nari-seed`.
+        stream:
+          type: boolean
+          default: false
+          description: |
+            `false` returns audio after generation finishes; `true` sends audio as it is generated.
+            Send the complete text in one request in either mode.
+        response_format:
+          $ref: '#/components/schemas/SpeechRequestResponseFormat'
+          default: wav
+          description: |
+            `wav` includes a WAV header; `pcm` returns raw audio samples.
+            Both formats support streaming.
+      required:
+        - model
+        - input
+        - voice
+      description: |
+        The complete UTF-8 JSON body must not exceed 65,536 bytes, before trimming.
+        Oversized bodies return 413 REQUEST_TOO_LARGE. Unknown fields, explicit null values,
+        and incorrect field types are rejected with 400. Omit optional fields to use their defaults.
+      title: SpeechRequest
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Nari API key created in the Dashboard.

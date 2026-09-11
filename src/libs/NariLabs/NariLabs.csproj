@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>Generated C# SDK for Nari Labs low-latency text-to-speech, voice discovery, streaming audio, and realtime speech-to-text APIs.</Description>
+    <PackageTags>nari-labs;tts;text-to-speech;stt;speech-to-text;voice;streaming;realtime;api;sdk;dotnet;openapi;asyncapi;autosdk</PackageTags>
+  </PropertyGroup>
+
+</Project>
