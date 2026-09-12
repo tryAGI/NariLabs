@@ -28,6 +28,7 @@ autosdk generate openapi.yaml \
   --clientClassName NariLabsClient \
   --targetFramework net10.0 \
   --output Generated \
+  --strip-redundant-operation-id-tag-prefixes \
   --exclude-deprecated-operations \
   --generate-http-exception-hierarchy \
   --generate-retry-handler \
