@@ -5,7 +5,7 @@ info:
 paths:
   /v1/voices:
     get:
-      operationId: listVoices
+      operationId: voices_listVoices
       summary: List voices
       description: |
         Returns the complete voice catalog for a TTS model.
@@ -58,7 +58,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
   /v1/audio/speech:
     post:
-      operationId: generateSpeech
+      operationId: speech_generateSpeech
       summary: Generate speech
       description: |
         Converts complete text to WAV or raw PCM audio. Set `stream: true` for progressive delivery.
