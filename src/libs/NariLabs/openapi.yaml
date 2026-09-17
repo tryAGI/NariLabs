@@ -19,12 +19,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: Authorization
-          in: header
-          description: A Nari API key created in the Dashboard.
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Complete voice catalog.
@@ -56,6 +50,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - bearerAuth: []
   /v1/audio/speech:
     post:
       operationId: speech_generateSpeech
@@ -67,13 +63,6 @@ paths:
         incorrect field types return `400`. Omit optional fields to use their defaults.
       tags:
         - speech
-      parameters:
-        - name: Authorization
-          in: header
-          description: A Nari API key created in the Dashboard.
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: |
@@ -153,6 +142,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SpeechRequest'
+      security:
+        - bearerAuth: []
+tags:
+  - name: voices
+  - name: speech
 servers:
   - url: https://api.narilabs.com
     description: Production
