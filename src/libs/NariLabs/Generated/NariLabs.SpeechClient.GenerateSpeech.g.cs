@@ -452,43 +452,6 @@ namespace NariLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Partner models require early access.
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                global::NariLabs.ErrorResponse? __value_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::NariLabs.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_403 = global::NariLabs.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::NariLabs.ApiException<global::NariLabs.ErrorResponse>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseObject: __value_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // The requested model does not exist or is not available.
                             if ((int)__response.StatusCode == 404)
                             {
@@ -563,7 +526,7 @@ namespace NariLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // A concurrency, free-tier, or upstream rate limit was reached.
+                            // A concurrency or upstream rate limit was reached.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;
@@ -1111,43 +1074,6 @@ namespace NariLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Partner models require early access.
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                global::NariLabs.ErrorResponse? __value_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::NariLabs.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_403 = global::NariLabs.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::NariLabs.ApiException<global::NariLabs.ErrorResponse>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseObject: __value_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // The requested model does not exist or is not available.
                             if ((int)__response.StatusCode == 404)
                             {
@@ -1222,7 +1148,7 @@ namespace NariLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // A concurrency, free-tier, or upstream rate limit was reached.
+                            // A concurrency or upstream rate limit was reached.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;
@@ -1428,7 +1354,7 @@ namespace NariLabs
         /// incorrect field types return `400`. Omit optional fields to use their defaults.
         /// </summary>
         /// <param name="model">
-        /// Select Standard or Fast. Append `:free` for Free access.
+        /// Select Standard or Fast.
         /// </param>
         /// <param name="input">
         /// Complete text. Surrounding whitespace is removed before validation, synthesis and usage<br/>

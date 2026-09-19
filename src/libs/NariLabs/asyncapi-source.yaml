@@ -160,8 +160,6 @@ components:
       enum:
         - qwen3-asr
         - qwen3-asr-fast
-        - qwen3-asr:free
-        - qwen3-asr-fast:free
       description: STT model used for this connection.
       title: ChannelsRealtimeMessagesSessionUpdatedMessageSessionModel
     ChannelsRealtimeMessagesSessionUpdatedMessageSessionLanguage:
@@ -567,8 +565,6 @@ components:
       enum:
         - qwen3-asr
         - qwen3-asr-fast
-        - qwen3-asr:free
-        - qwen3-asr-fast:free
       description: STT model used for this connection.
       title: SessionConfigModel
     SessionConfigLanguage:

@@ -16,14 +16,6 @@ namespace NariLabs.Realtime
         ///
         /// </summary>
         Qwen3AsrFast,
-        /// <summary>
-        ///
-        /// </summary>
-        Qwen3AsrFast_free,
-        /// <summary>
-        ///
-        /// </summary>
-        Qwen3Asr_free,
     }
 
     /// <summary>
@@ -40,8 +32,6 @@ namespace NariLabs.Realtime
             {
                 SessionConfigModel.Qwen3Asr => "qwen3-asr",
                 SessionConfigModel.Qwen3AsrFast => "qwen3-asr-fast",
-                SessionConfigModel.Qwen3AsrFast_free => "qwen3-asr-fast:free",
-                SessionConfigModel.Qwen3Asr_free => "qwen3-asr:free",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -54,8 +44,6 @@ namespace NariLabs.Realtime
             {
                 "qwen3-asr" => SessionConfigModel.Qwen3Asr,
                 "qwen3-asr-fast" => SessionConfigModel.Qwen3AsrFast,
-                "qwen3-asr-fast:free" => SessionConfigModel.Qwen3AsrFast_free,
-                "qwen3-asr:free" => SessionConfigModel.Qwen3Asr_free,
                 _ => null,
             };
         }

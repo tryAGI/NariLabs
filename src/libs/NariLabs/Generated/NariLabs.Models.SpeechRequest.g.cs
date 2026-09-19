@@ -11,7 +11,7 @@ namespace NariLabs
     public sealed partial class SpeechRequest
     {
         /// <summary>
-        /// Select Standard or Fast. Append `:free` for Free access.
+        /// Select Standard or Fast.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::NariLabs.JsonConverters.SpeechRequestModelJsonConverter))]
@@ -79,7 +79,7 @@ namespace NariLabs
         /// Initializes a new instance of the <see cref="SpeechRequest" /> class.
         /// </summary>
         /// <param name="model">
-        /// Select Standard or Fast. Append `:free` for Free access.
+        /// Select Standard or Fast.
         /// </param>
         /// <param name="input">
         /// Complete text. Surrounding whitespace is removed before validation, synthesis and usage<br/>
