@@ -45,6 +45,14 @@ namespace NariLabs.Realtime
 
             typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesCompletedTranscriptMessageCommitReasonNullableJsonConverter),
 
+            typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesWordTimestampsMessageTypeJsonConverter),
+
+            typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesWordTimestampsMessageTypeNullableJsonConverter),
+
+            typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesWordTimestampsFailedMessageTypeJsonConverter),
+
+            typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesWordTimestampsFailedMessageTypeNullableJsonConverter),
+
             typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesAudioCommittedMessageTypeJsonConverter),
 
             typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesAudioCommittedMessageTypeNullableJsonConverter),
@@ -100,6 +108,7 @@ namespace NariLabs.Realtime
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdatedMessageSession))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeSessionUpdatedMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesPartialTranscriptMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesPartialTranscriptMessageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimePartialTranscriptMessage))]
@@ -108,6 +117,13 @@ namespace NariLabs.Realtime
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageCommitReason), TypeInfoPropertyName = "ChannelsRealtimeMessagesCompletedTranscriptMessageCommitReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageUsage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesWordTimestampsMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.WordTimestamp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::NariLabs.Realtime.WordTimestamp>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesWordTimestampsFailedMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommittedMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesAudioCommittedMessageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesSpeechStartedMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesSpeechStartedMessageType2")]
@@ -129,6 +145,7 @@ namespace NariLabs.Realtime
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommitMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesAudioCommitMessageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeAudioCommitMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ServerEvent), TypeInfoPropertyName = "ServerEvent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::NariLabs.Realtime.WordTimestamp>))]
     public sealed partial class RealtimeSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

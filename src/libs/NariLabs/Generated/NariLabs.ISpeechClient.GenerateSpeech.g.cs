@@ -56,7 +56,7 @@ namespace NariLabs
         /// incorrect field types return `400`. Omit optional fields to use their defaults.
         /// </summary>
         /// <param name="model">
-        /// Select Standard or Fast. Append `:free` for Free access.
+        /// Select Standard or Fast.
         /// </param>
         /// <param name="input">
         /// Complete text. Surrounding whitespace is removed before validation, synthesis and usage<br/>

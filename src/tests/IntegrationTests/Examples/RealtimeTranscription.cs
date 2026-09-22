@@ -25,12 +25,12 @@ public partial class Tests
         {
             Session = new Realtime.SessionConfig
             {
-                Model = Realtime.SessionConfigModel.Qwen3AsrFast_free,
+                Model = Realtime.SessionConfigModel.Qwen3AsrFast,
                 Language = Realtime.SessionConfigLanguage.En,
             },
         };
 
-        configure.Session.Model.Should().Be(Realtime.SessionConfigModel.Qwen3AsrFast_free);
+        configure.Session.Model.Should().Be(Realtime.SessionConfigModel.Qwen3AsrFast);
         await Task.CompletedTask;
     }
 

@@ -52,6 +52,14 @@ namespace NariLabs.Realtime
         public global::NariLabs.Realtime.ServerVad? TurnDetection { get; set; }
 
         /// <summary>
+        /// When true, request one `transcript.words` or `transcript.words.failed` event after each completed transcript.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_timestamps")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool WordTimestamps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +81,10 @@ namespace NariLabs.Realtime
         /// <param name="prompt">
         /// Applied recognition context; empty when no prompt was supplied.
         /// </param>
+        /// <param name="wordTimestamps">
+        /// When true, request one `transcript.words` or `transcript.words.failed` event after each completed transcript.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="turnDetection">
         /// Omit or use null for manual commit; use server_vad for automatic speech boundaries.
         /// </param>
@@ -85,6 +97,7 @@ namespace NariLabs.Realtime
             global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdatedMessageSessionModel model,
             global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdatedMessageSessionLanguage language,
             string prompt,
+            bool wordTimestamps,
             global::NariLabs.Realtime.ServerVad? turnDetection)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -93,6 +106,7 @@ namespace NariLabs.Realtime
             this.Language = language;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.TurnDetection = turnDetection;
+            this.WordTimestamps = wordTimestamps;
         }
 
         /// <summary>

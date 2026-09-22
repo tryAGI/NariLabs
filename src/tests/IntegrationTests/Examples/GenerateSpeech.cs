@@ -23,7 +23,7 @@ public partial class Tests
         //// Generate complete WAV audio. The free model can be replaced with
         //// SpeechRequestModel.Qwen3Tts for the paid Standard endpoint.
         var audio = await client.Speech.GenerateSpeechAsync(
-            model: SpeechRequestModel.Qwen3Tts_free,
+            model: SpeechRequestModel.Qwen3Tts,
             input: "Hello from the Nari Labs .NET SDK!",
             voice: voice.Id,
             responseFormat: SpeechRequestResponseFormat.Wav);

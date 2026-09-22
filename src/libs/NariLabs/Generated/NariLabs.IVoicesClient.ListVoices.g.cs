@@ -7,7 +7,7 @@ namespace NariLabs
         /// <summary>
         /// List voices<br/>
         /// Returns the complete voice catalog for a TTS model.<br/>
-        /// Requires an API key and does not consume generation allowance or credits.
+        /// Requires an API key and does not consume inference concurrency or credits.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -20,7 +20,7 @@ namespace NariLabs
         /// <summary>
         /// List voices<br/>
         /// Returns the complete voice catalog for a TTS model.<br/>
-        /// Requires an API key and does not consume generation allowance or credits.
+        /// Requires an API key and does not consume inference concurrency or credits.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

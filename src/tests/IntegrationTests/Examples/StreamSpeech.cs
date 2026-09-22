@@ -23,7 +23,7 @@ public partial class Tests
         await using var audio = await client.Speech.GenerateSpeechAsStreamAsync(
             new SpeechRequest
             {
-                Model = SpeechRequestModel.Qwen3TtsFast_free,
+                Model = SpeechRequestModel.Qwen3TtsFast,
                 Input = "This audio is delivered progressively.",
                 Voice = voice.Id,
                 Stream = true,

@@ -4,7 +4,7 @@
 namespace NariLabs
 {
     /// <summary>
-    /// Select Standard or Fast. Append `:free` for Free access.
+    /// Select Standard or Fast.
     /// </summary>
     public enum SpeechRequestModel
     {
@@ -16,14 +16,6 @@ namespace NariLabs
         ///
         /// </summary>
         Qwen3TtsFast,
-        /// <summary>
-        ///
-        /// </summary>
-        Qwen3TtsFast_free,
-        /// <summary>
-        ///
-        /// </summary>
-        Qwen3Tts_free,
     }
 
     /// <summary>
@@ -40,8 +32,6 @@ namespace NariLabs
             {
                 SpeechRequestModel.Qwen3Tts => "qwen3-tts",
                 SpeechRequestModel.Qwen3TtsFast => "qwen3-tts-fast",
-                SpeechRequestModel.Qwen3TtsFast_free => "qwen3-tts-fast:free",
-                SpeechRequestModel.Qwen3Tts_free => "qwen3-tts:free",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -54,8 +44,6 @@ namespace NariLabs
             {
                 "qwen3-tts" => SpeechRequestModel.Qwen3Tts,
                 "qwen3-tts-fast" => SpeechRequestModel.Qwen3TtsFast,
-                "qwen3-tts-fast:free" => SpeechRequestModel.Qwen3TtsFast_free,
-                "qwen3-tts:free" => SpeechRequestModel.Qwen3Tts_free,
                 _ => null,
             };
         }

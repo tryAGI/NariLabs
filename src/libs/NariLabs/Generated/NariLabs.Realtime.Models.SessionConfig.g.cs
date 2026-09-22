@@ -37,6 +37,13 @@ namespace NariLabs.Realtime
         public global::NariLabs.Realtime.ServerVad? TurnDetection { get; set; }
 
         /// <summary>
+        /// When true, request one `transcript.words` or `transcript.words.failed` event after each completed transcript.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_timestamps")]
+        public bool? WordTimestamps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +65,10 @@ namespace NariLabs.Realtime
         /// Omit or use null for manual commit; use server_vad for automatic speech boundaries.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
+        /// <param name="wordTimestamps">
+        /// When true, request one `transcript.words` or `transcript.words.failed` event after each completed transcript.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,12 +76,14 @@ namespace NariLabs.Realtime
             global::NariLabs.Realtime.SessionConfigModel model,
             global::NariLabs.Realtime.SessionConfigLanguage? language,
             string? prompt,
-            global::NariLabs.Realtime.ServerVad? turnDetection)
+            global::NariLabs.Realtime.ServerVad? turnDetection,
+            bool? wordTimestamps)
         {
             this.Model = model;
             this.Language = language;
             this.Prompt = prompt;
             this.TurnDetection = turnDetection;
+            this.WordTimestamps = wordTimestamps;
         }
 
         /// <summary>
