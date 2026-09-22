@@ -43,6 +43,7 @@ namespace NariLabs.Realtime.JsonConverters
             if (__jsonProps.Contains("session.model")) __score0++;
             if (__jsonProps.Contains("session.prompt")) __score0++;
             if (__jsonProps.Contains("session.turn_detection")) __score0++;
+            if (__jsonProps.Contains("session.word_timestamps")) __score0++;
             if (__jsonProps.Contains("type")) __score0++;
             var __score1 = 0;
             if (__jsonProps.Contains("event_id")) __score1++;
@@ -60,33 +61,46 @@ namespace NariLabs.Realtime.JsonConverters
             if (__jsonProps.Contains("usage")) __score2++;
             if (__jsonProps.Contains("usage.input_audio_seconds")) __score2++;
             var __score3 = 0;
-            if (__jsonProps.Contains("client_event_id")) __score3++;
             if (__jsonProps.Contains("event_id")) __score3++;
             if (__jsonProps.Contains("item_id")) __score3++;
-            if (__jsonProps.Contains("previous_item_id")) __score3++;
             if (__jsonProps.Contains("type")) __score3++;
+            if (__jsonProps.Contains("words")) __score3++;
             var __score4 = 0;
-            if (__jsonProps.Contains("audio_start_ms")) __score4++;
+            if (__jsonProps.Contains("error")) __score4++;
+            if (__jsonProps.Contains("error.code")) __score4++;
+            if (__jsonProps.Contains("error.message")) __score4++;
+            if (__jsonProps.Contains("error.requestId")) __score4++;
             if (__jsonProps.Contains("event_id")) __score4++;
             if (__jsonProps.Contains("item_id")) __score4++;
             if (__jsonProps.Contains("type")) __score4++;
             var __score5 = 0;
-            if (__jsonProps.Contains("audio_end_ms")) __score5++;
+            if (__jsonProps.Contains("client_event_id")) __score5++;
             if (__jsonProps.Contains("event_id")) __score5++;
             if (__jsonProps.Contains("item_id")) __score5++;
+            if (__jsonProps.Contains("previous_item_id")) __score5++;
             if (__jsonProps.Contains("type")) __score5++;
             var __score6 = 0;
-            if (__jsonProps.Contains("error")) __score6++;
-            if (__jsonProps.Contains("error.code")) __score6++;
-            if (__jsonProps.Contains("error.message")) __score6++;
-            if (__jsonProps.Contains("error.requestId")) __score6++;
+            if (__jsonProps.Contains("audio_start_ms")) __score6++;
             if (__jsonProps.Contains("event_id")) __score6++;
+            if (__jsonProps.Contains("item_id")) __score6++;
             if (__jsonProps.Contains("type")) __score6++;
             var __score7 = 0;
-            if (__jsonProps.Contains("client_event_id")) __score7++;
+            if (__jsonProps.Contains("audio_end_ms")) __score7++;
             if (__jsonProps.Contains("event_id")) __score7++;
             if (__jsonProps.Contains("item_id")) __score7++;
             if (__jsonProps.Contains("type")) __score7++;
+            var __score8 = 0;
+            if (__jsonProps.Contains("error")) __score8++;
+            if (__jsonProps.Contains("error.code")) __score8++;
+            if (__jsonProps.Contains("error.message")) __score8++;
+            if (__jsonProps.Contains("error.requestId")) __score8++;
+            if (__jsonProps.Contains("event_id")) __score8++;
+            if (__jsonProps.Contains("type")) __score8++;
+            var __score9 = 0;
+            if (__jsonProps.Contains("client_event_id")) __score9++;
+            if (__jsonProps.Contains("event_id")) __score9++;
+            if (__jsonProps.Contains("item_id")) __score9++;
+            if (__jsonProps.Contains("type")) __score9++;
             var __bestScore = 0;
             var __bestIndex = -1;
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
@@ -97,10 +111,14 @@ namespace NariLabs.Realtime.JsonConverters
             if (__score5 > __bestScore) { __bestScore = __score5; __bestIndex = 5; }
             if (__score6 > __bestScore) { __bestScore = __score6; __bestIndex = 6; }
             if (__score7 > __bestScore) { __bestScore = __score7; __bestIndex = 7; }
+            if (__score8 > __bestScore) { __bestScore = __score8; __bestIndex = 8; }
+            if (__score9 > __bestScore) { __bestScore = __score9; __bestIndex = 9; }
 
             global::NariLabs.Realtime.RealtimeSessionUpdatedMessage? realtimeSessionUpdatedMessage = default;
             global::NariLabs.Realtime.RealtimePartialTranscriptMessage? realtimePartialTranscriptMessage = default;
             global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage? realtimeCompletedTranscriptMessage = default;
+            global::NariLabs.Realtime.RealtimeWordTimestampsMessage? realtimeWordTimestampsMessage = default;
+            global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? realtimeWordTimestampsFailedMessage = default;
             global::NariLabs.Realtime.RealtimeAudioCommittedMessage? realtimeAudioCommittedMessage = default;
             global::NariLabs.Realtime.RealtimeSpeechStartedMessage? realtimeSpeechStartedMessage = default;
             global::NariLabs.Realtime.RealtimeSpeechStoppedMessage? realtimeSpeechStoppedMessage = default;
@@ -157,6 +175,36 @@ namespace NariLabs.Realtime.JsonConverters
                 {
                     try
                     {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsMessage> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage).Name}");
+                        realtimeWordTimestampsMessage = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 4)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage).Name}");
+                        realtimeWordTimestampsFailedMessage = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 5)
+                {
+                    try
+                    {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeAudioCommittedMessage> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage).Name}");
                         realtimeAudioCommittedMessage = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -168,7 +216,7 @@ namespace NariLabs.Realtime.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 4)
+                else if (__bestIndex == 6)
                 {
                     try
                     {
@@ -183,7 +231,7 @@ namespace NariLabs.Realtime.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 5)
+                else if (__bestIndex == 7)
                 {
                     try
                     {
@@ -198,7 +246,7 @@ namespace NariLabs.Realtime.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 6)
+                else if (__bestIndex == 8)
                 {
                     try
                     {
@@ -213,7 +261,7 @@ namespace NariLabs.Realtime.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 7)
+                else if (__bestIndex == 9)
                 {
                     try
                     {
@@ -230,7 +278,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -247,7 +295,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -264,7 +312,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -281,7 +329,41 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsMessage> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage).Name}");
+                    realtimeWordTimestampsMessage = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage).Name}");
+                    realtimeWordTimestampsFailedMessage = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -298,7 +380,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -315,7 +397,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -332,7 +414,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -349,7 +431,7 @@ namespace NariLabs.Realtime.JsonConverters
                 }
             }
 
-            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
+            if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
             {
                 try
                 {
@@ -372,6 +454,10 @@ namespace NariLabs.Realtime.JsonConverters
                 realtimePartialTranscriptMessage,
 
                 realtimeCompletedTranscriptMessage,
+
+                realtimeWordTimestampsMessage,
+
+                realtimeWordTimestampsFailedMessage,
 
                 realtimeAudioCommittedMessage,
 
@@ -413,6 +499,18 @@ namespace NariLabs.Realtime.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeCompletedTranscriptMessage!, typeInfo);
+            }
+            else if (value.IsRealtimeWordTimestampsMessage)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsMessage?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeWordTimestampsMessage!, typeInfo);
+            }
+            else if (value.IsRealtimeWordTimestampsFailedMessage)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeWordTimestampsFailedMessage!, typeInfo);
             }
             else if (value.IsRealtimeAudioCommittedMessage)
             {

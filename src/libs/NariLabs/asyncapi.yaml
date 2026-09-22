@@ -73,6 +73,10 @@ channels:
         $ref: '#/components/messages/PartialTranscriptMessage'
       CompletedTranscriptMessage:
         $ref: '#/components/messages/CompletedTranscriptMessage'
+      WordTimestampsMessage:
+        $ref: '#/components/messages/WordTimestampsMessage'
+      WordTimestampsFailedMessage:
+        $ref: '#/components/messages/WordTimestampsFailedMessage'
       AudioCommittedMessage:
         $ref: '#/components/messages/AudioCommittedMessage'
       SpeechStartedMessage:
@@ -108,6 +112,18 @@ operations:
       $ref: '#/channels/realtimeTranscription'
     messages:
     - $ref: '#/channels/realtimeTranscription/messages/CompletedTranscriptMessage'
+  receiveWordTimestampsMessage:
+    action: receive
+    channel:
+      $ref: '#/channels/realtimeTranscription'
+    messages:
+    - $ref: '#/channels/realtimeTranscription/messages/WordTimestampsMessage'
+  receiveWordTimestampsFailedMessage:
+    action: receive
+    channel:
+      $ref: '#/channels/realtimeTranscription'
+    messages:
+    - $ref: '#/channels/realtimeTranscription/messages/WordTimestampsFailedMessage'
   receiveAudioCommittedMessage:
     action: receive
     channel:
@@ -179,6 +195,21 @@ components:
         leaves the connection open.
       payload:
         $ref: '#/components/schemas/realtime_CompletedTranscriptMessage'
+    WordTimestampsMessage:
+      name: WordTimestampsMessage
+      title: transcript.words
+      description: Word-level alignment for an opted-in completed transcript. Match
+        it by `item_id`; alignment is asynchronous, so other utterance events can
+        arrive first.
+      payload:
+        $ref: '#/components/schemas/realtime_WordTimestampsMessage'
+    WordTimestampsFailedMessage:
+      name: WordTimestampsFailedMessage
+      title: transcript.words.failed
+      description: Terminal alignment failure for an opted-in completed transcript.
+        The matching `transcript.completed` remains valid.
+      payload:
+        $ref: '#/components/schemas/realtime_WordTimestampsFailedMessage'
     AudioCommittedMessage:
       name: AudioCommittedMessage
       title: input_audio_buffer.committed
@@ -264,8 +295,6 @@ components:
       enum:
       - qwen3-asr
       - qwen3-asr-fast
-      - qwen3-asr:free
-      - qwen3-asr-fast:free
       description: STT model used for this connection.
       title: ChannelsRealtimeMessagesSessionUpdatedMessageSessionModel
     ChannelsRealtimeMessagesSessionUpdatedMessageSessionLanguage:
@@ -366,6 +395,11 @@ components:
           - type: 'null'
           description: Omit or use null for manual commit; use server_vad for automatic
             speech boundaries.
+        word_timestamps:
+          type: boolean
+          default: false
+          description: When true, request one `transcript.words` or `transcript.words.failed`
+            event after each completed transcript.
       required:
       - id
       - limits
@@ -373,6 +407,7 @@ components:
       - language
       - prompt
       - turn_detection
+      - word_timestamps
       title: ChannelsRealtimeMessagesSessionUpdatedMessageSession
     realtime_SessionUpdatedMessage:
       type: object
@@ -517,6 +552,97 @@ components:
       - commit_reason
       - usage
       title: realtime_CompletedTranscriptMessage
+    ChannelsRealtimeMessagesWordTimestampsMessageType:
+      type: string
+      enum:
+      - transcript.words
+      title: ChannelsRealtimeMessagesWordTimestampsMessageType
+    WordTimestamp:
+      type: object
+      properties:
+        word:
+          type: string
+          description: Word text as aligned against the completed transcript.
+        start:
+          type: number
+          format: double
+          minimum: 0
+          description: Start time in seconds from the beginning of this utterance.
+        end:
+          type: number
+          format: double
+          minimum: 0
+          description: End time in seconds from the beginning of this utterance.
+      required:
+      - word
+      - start
+      - end
+      title: WordTimestamp
+    realtime_WordTimestampsMessage:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChannelsRealtimeMessagesWordTimestampsMessageType'
+        event_id:
+          type: string
+          description: Unique identifier of this event.
+        item_id:
+          type: string
+          description: Utterance identifier shared with the completed transcript.
+        words:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordTimestamp'
+          description: Ordered word alignments. The array can be empty when the completed
+            transcript is empty.
+      required:
+      - type
+      - event_id
+      - item_id
+      - words
+      title: realtime_WordTimestampsMessage
+    ChannelsRealtimeMessagesWordTimestampsFailedMessageType:
+      type: string
+      enum:
+      - transcript.words.failed
+      title: ChannelsRealtimeMessagesWordTimestampsFailedMessageType
+    ChannelsRealtimeMessagesWordTimestampsFailedMessageError:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Machine-readable alignment failure code.
+        message:
+          type: string
+          description: Human-readable alignment failure message.
+        requestId:
+          type: string
+          description: Connection identifier matching the x-request-id handshake response
+            header.
+      required:
+      - code
+      - message
+      - requestId
+      title: ChannelsRealtimeMessagesWordTimestampsFailedMessageError
+    realtime_WordTimestampsFailedMessage:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChannelsRealtimeMessagesWordTimestampsFailedMessageType'
+        event_id:
+          type: string
+          description: Unique identifier of this event.
+        item_id:
+          type: string
+          description: Utterance identifier shared with the completed transcript.
+        error:
+          $ref: '#/components/schemas/ChannelsRealtimeMessagesWordTimestampsFailedMessageError'
+      required:
+      - type
+      - event_id
+      - item_id
+      - error
+      title: realtime_WordTimestampsFailedMessage
     ChannelsRealtimeMessagesAudioCommittedMessageType:
       type: string
       enum:
@@ -686,8 +812,6 @@ components:
       enum:
       - qwen3-asr
       - qwen3-asr-fast
-      - qwen3-asr:free
-      - qwen3-asr-fast:free
       description: STT model used for this connection.
       title: SessionConfigModel
     SessionConfigLanguage:
@@ -750,6 +874,11 @@ components:
           default: null
           description: Omit or use null for manual commit; use server_vad for automatic
             speech boundaries.
+        word_timestamps:
+          type: boolean
+          default: false
+          description: When true, request one `transcript.words` or `transcript.words.failed`
+            event after each completed transcript.
       required:
       - model
       title: SessionConfig

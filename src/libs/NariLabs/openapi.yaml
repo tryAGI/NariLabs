@@ -9,7 +9,7 @@ paths:
       summary: List voices
       description: |
         Returns the complete voice catalog for a TTS model.
-        Requires an API key and does not consume generation allowance or credits.
+        Requires an API key and does not consume inference concurrency or credits.
       tags:
         - voices
       parameters:
@@ -97,12 +97,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-        '403':
-          description: Partner models require early access.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
         '404':
           description: The requested model does not exist or is not available.
           content:
@@ -118,7 +112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '429':
-          description: A concurrency, free-tier, or upstream rate limit was reached.
+          description: A concurrency or upstream rate limit was reached.
           content:
             application/json:
               schema:
@@ -264,10 +258,7 @@ components:
       enum:
         - qwen3-tts
         - qwen3-tts-fast
-        - qwen3-tts:free
-        - qwen3-tts-fast:free
-      description: |
-        Select Standard or Fast. Append `:free` for Free access.
+      description: Select Standard or Fast.
       title: SpeechRequestModel
     SpeechRequestResponseFormat:
       type: string
@@ -284,8 +275,7 @@ components:
       properties:
         model:
           $ref: '#/components/schemas/SpeechRequestModel'
-          description: |
-            Select Standard or Fast. Append `:free` for Free access.
+          description: Select Standard or Fast.
         input:
           type: string
           minLength: 1

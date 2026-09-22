@@ -195,6 +195,24 @@ namespace NariLabs.Realtime
                         rawText,
                         json));
             }
+            if (@event.RealtimeWordTimestampsMessage is { } __WordTimestampsMessageReceived)
+            {
+                WordTimestampsMessageReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeWordTimestampsMessage>(
+                        __WordTimestampsMessageReceived,
+                        rawText,
+                        json));
+            }
+            if (@event.RealtimeWordTimestampsFailedMessage is { } __WordTimestampsFailedMessageReceived)
+            {
+                WordTimestampsFailedMessageReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage>(
+                        __WordTimestampsFailedMessageReceived,
+                        rawText,
+                        json));
+            }
             if (@event.RealtimeAudioCommittedMessage is { } __AudioCommittedMessageReceived)
             {
                 AudioCommittedMessageReceived?.Invoke(

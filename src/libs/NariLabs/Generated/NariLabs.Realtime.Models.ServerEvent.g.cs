@@ -124,6 +124,80 @@ namespace NariLabs.Realtime
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
+        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage? RealtimeWordTimestampsMessage { get; init; }
+#else
+        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage? RealtimeWordTimestampsMessage { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RealtimeWordTimestampsMessage))]
+#endif
+        public bool IsRealtimeWordTimestampsMessage => RealtimeWordTimestampsMessage != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickRealtimeWordTimestampsMessage(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::NariLabs.Realtime.RealtimeWordTimestampsMessage? value)
+        {
+            value = RealtimeWordTimestampsMessage;
+            return IsRealtimeWordTimestampsMessage;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage PickRealtimeWordTimestampsMessage() => IsRealtimeWordTimestampsMessage
+            ? RealtimeWordTimestampsMessage!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeWordTimestampsMessage' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? RealtimeWordTimestampsFailedMessage { get; init; }
+#else
+        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? RealtimeWordTimestampsFailedMessage { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RealtimeWordTimestampsFailedMessage))]
+#endif
+        public bool IsRealtimeWordTimestampsFailedMessage => RealtimeWordTimestampsFailedMessage != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickRealtimeWordTimestampsFailedMessage(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? value)
+        {
+            value = RealtimeWordTimestampsFailedMessage;
+            return IsRealtimeWordTimestampsFailedMessage;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage PickRealtimeWordTimestampsFailedMessage() => IsRealtimeWordTimestampsFailedMessage
+            ? RealtimeWordTimestampsFailedMessage!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeWordTimestampsFailedMessage' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
         public global::NariLabs.Realtime.RealtimeAudioCommittedMessage? RealtimeAudioCommittedMessage { get; init; }
 #else
         public global::NariLabs.Realtime.RealtimeAudioCommittedMessage? RealtimeAudioCommittedMessage { get; }
@@ -376,6 +450,52 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator ServerEvent(global::NariLabs.Realtime.RealtimeWordTimestampsMessage value) => new ServerEvent((global::NariLabs.Realtime.RealtimeWordTimestampsMessage?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::NariLabs.Realtime.RealtimeWordTimestampsMessage?(ServerEvent @this) => @this.RealtimeWordTimestampsMessage;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ServerEvent(global::NariLabs.Realtime.RealtimeWordTimestampsMessage? value)
+        {
+            RealtimeWordTimestampsMessage = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ServerEvent FromRealtimeWordTimestampsMessage(global::NariLabs.Realtime.RealtimeWordTimestampsMessage? value) => new ServerEvent(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ServerEvent(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage value) => new ServerEvent((global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage?(ServerEvent @this) => @this.RealtimeWordTimestampsFailedMessage;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ServerEvent(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? value)
+        {
+            RealtimeWordTimestampsFailedMessage = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ServerEvent FromRealtimeWordTimestampsFailedMessage(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? value) => new ServerEvent(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator ServerEvent(global::NariLabs.Realtime.RealtimeAudioCommittedMessage value) => new ServerEvent((global::NariLabs.Realtime.RealtimeAudioCommittedMessage?)value);
 
         /// <summary>
@@ -495,6 +615,8 @@ namespace NariLabs.Realtime
             global::NariLabs.Realtime.RealtimeSessionUpdatedMessage? realtimeSessionUpdatedMessage,
             global::NariLabs.Realtime.RealtimePartialTranscriptMessage? realtimePartialTranscriptMessage,
             global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage? realtimeCompletedTranscriptMessage,
+            global::NariLabs.Realtime.RealtimeWordTimestampsMessage? realtimeWordTimestampsMessage,
+            global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? realtimeWordTimestampsFailedMessage,
             global::NariLabs.Realtime.RealtimeAudioCommittedMessage? realtimeAudioCommittedMessage,
             global::NariLabs.Realtime.RealtimeSpeechStartedMessage? realtimeSpeechStartedMessage,
             global::NariLabs.Realtime.RealtimeSpeechStoppedMessage? realtimeSpeechStoppedMessage,
@@ -505,6 +627,8 @@ namespace NariLabs.Realtime
             RealtimeSessionUpdatedMessage = realtimeSessionUpdatedMessage;
             RealtimePartialTranscriptMessage = realtimePartialTranscriptMessage;
             RealtimeCompletedTranscriptMessage = realtimeCompletedTranscriptMessage;
+            RealtimeWordTimestampsMessage = realtimeWordTimestampsMessage;
+            RealtimeWordTimestampsFailedMessage = realtimeWordTimestampsFailedMessage;
             RealtimeAudioCommittedMessage = realtimeAudioCommittedMessage;
             RealtimeSpeechStartedMessage = realtimeSpeechStartedMessage;
             RealtimeSpeechStoppedMessage = realtimeSpeechStoppedMessage;
@@ -521,6 +645,8 @@ namespace NariLabs.Realtime
             RealtimeSpeechStoppedMessage as object ??
             RealtimeSpeechStartedMessage as object ??
             RealtimeAudioCommittedMessage as object ??
+            RealtimeWordTimestampsFailedMessage as object ??
+            RealtimeWordTimestampsMessage as object ??
             RealtimeCompletedTranscriptMessage as object ??
             RealtimePartialTranscriptMessage as object ??
             RealtimeSessionUpdatedMessage as object
@@ -533,6 +659,8 @@ namespace NariLabs.Realtime
             RealtimeSessionUpdatedMessage?.ToString() ??
             RealtimePartialTranscriptMessage?.ToString() ??
             RealtimeCompletedTranscriptMessage?.ToString() ??
+            RealtimeWordTimestampsMessage?.ToString() ??
+            RealtimeWordTimestampsFailedMessage?.ToString() ??
             RealtimeAudioCommittedMessage?.ToString() ??
             RealtimeSpeechStartedMessage?.ToString() ??
             RealtimeSpeechStoppedMessage?.ToString() ??
@@ -545,7 +673,7 @@ namespace NariLabs.Realtime
         /// </summary>
         public bool Validate()
         {
-            return IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && IsRealtimeCommitEmptyMessage;
+            return IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && IsRealtimeErrorEventMessage && !IsRealtimeCommitEmptyMessage || !IsRealtimeSessionUpdatedMessage && !IsRealtimePartialTranscriptMessage && !IsRealtimeCompletedTranscriptMessage && !IsRealtimeWordTimestampsMessage && !IsRealtimeWordTimestampsFailedMessage && !IsRealtimeAudioCommittedMessage && !IsRealtimeSpeechStartedMessage && !IsRealtimeSpeechStoppedMessage && !IsRealtimeErrorEventMessage && IsRealtimeCommitEmptyMessage;
         }
 
         /// <summary>
@@ -555,6 +683,8 @@ namespace NariLabs.Realtime
             global::System.Func<global::NariLabs.Realtime.RealtimeSessionUpdatedMessage, TResult>? realtimeSessionUpdatedMessage = null,
             global::System.Func<global::NariLabs.Realtime.RealtimePartialTranscriptMessage, TResult>? realtimePartialTranscriptMessage = null,
             global::System.Func<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage, TResult>? realtimeCompletedTranscriptMessage = null,
+            global::System.Func<global::NariLabs.Realtime.RealtimeWordTimestampsMessage, TResult>? realtimeWordTimestampsMessage = null,
+            global::System.Func<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage, TResult>? realtimeWordTimestampsFailedMessage = null,
             global::System.Func<global::NariLabs.Realtime.RealtimeAudioCommittedMessage, TResult>? realtimeAudioCommittedMessage = null,
             global::System.Func<global::NariLabs.Realtime.RealtimeSpeechStartedMessage, TResult>? realtimeSpeechStartedMessage = null,
             global::System.Func<global::NariLabs.Realtime.RealtimeSpeechStoppedMessage, TResult>? realtimeSpeechStoppedMessage = null,
@@ -578,6 +708,14 @@ namespace NariLabs.Realtime
             else if (IsRealtimeCompletedTranscriptMessage && realtimeCompletedTranscriptMessage != null)
             {
                 return realtimeCompletedTranscriptMessage(RealtimeCompletedTranscriptMessage!);
+            }
+            else if (IsRealtimeWordTimestampsMessage && realtimeWordTimestampsMessage != null)
+            {
+                return realtimeWordTimestampsMessage(RealtimeWordTimestampsMessage!);
+            }
+            else if (IsRealtimeWordTimestampsFailedMessage && realtimeWordTimestampsFailedMessage != null)
+            {
+                return realtimeWordTimestampsFailedMessage(RealtimeWordTimestampsFailedMessage!);
             }
             else if (IsRealtimeAudioCommittedMessage && realtimeAudioCommittedMessage != null)
             {
@@ -613,6 +751,10 @@ namespace NariLabs.Realtime
 
             global::System.Action<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage>? realtimeCompletedTranscriptMessage = null,
 
+            global::System.Action<global::NariLabs.Realtime.RealtimeWordTimestampsMessage>? realtimeWordTimestampsMessage = null,
+
+            global::System.Action<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage>? realtimeWordTimestampsFailedMessage = null,
+
             global::System.Action<global::NariLabs.Realtime.RealtimeAudioCommittedMessage>? realtimeAudioCommittedMessage = null,
 
             global::System.Action<global::NariLabs.Realtime.RealtimeSpeechStartedMessage>? realtimeSpeechStartedMessage = null,
@@ -640,6 +782,14 @@ namespace NariLabs.Realtime
             else if (IsRealtimeCompletedTranscriptMessage)
             {
                 realtimeCompletedTranscriptMessage?.Invoke(RealtimeCompletedTranscriptMessage!);
+            }
+            else if (IsRealtimeWordTimestampsMessage)
+            {
+                realtimeWordTimestampsMessage?.Invoke(RealtimeWordTimestampsMessage!);
+            }
+            else if (IsRealtimeWordTimestampsFailedMessage)
+            {
+                realtimeWordTimestampsFailedMessage?.Invoke(RealtimeWordTimestampsFailedMessage!);
             }
             else if (IsRealtimeAudioCommittedMessage)
             {
@@ -670,6 +820,8 @@ namespace NariLabs.Realtime
             global::System.Action<global::NariLabs.Realtime.RealtimeSessionUpdatedMessage>? realtimeSessionUpdatedMessage = null,
             global::System.Action<global::NariLabs.Realtime.RealtimePartialTranscriptMessage>? realtimePartialTranscriptMessage = null,
             global::System.Action<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage>? realtimeCompletedTranscriptMessage = null,
+            global::System.Action<global::NariLabs.Realtime.RealtimeWordTimestampsMessage>? realtimeWordTimestampsMessage = null,
+            global::System.Action<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage>? realtimeWordTimestampsFailedMessage = null,
             global::System.Action<global::NariLabs.Realtime.RealtimeAudioCommittedMessage>? realtimeAudioCommittedMessage = null,
             global::System.Action<global::NariLabs.Realtime.RealtimeSpeechStartedMessage>? realtimeSpeechStartedMessage = null,
             global::System.Action<global::NariLabs.Realtime.RealtimeSpeechStoppedMessage>? realtimeSpeechStoppedMessage = null,
@@ -693,6 +845,14 @@ namespace NariLabs.Realtime
             else if (IsRealtimeCompletedTranscriptMessage)
             {
                 realtimeCompletedTranscriptMessage?.Invoke(RealtimeCompletedTranscriptMessage!);
+            }
+            else if (IsRealtimeWordTimestampsMessage)
+            {
+                realtimeWordTimestampsMessage?.Invoke(RealtimeWordTimestampsMessage!);
+            }
+            else if (IsRealtimeWordTimestampsFailedMessage)
+            {
+                realtimeWordTimestampsFailedMessage?.Invoke(RealtimeWordTimestampsFailedMessage!);
             }
             else if (IsRealtimeAudioCommittedMessage)
             {
@@ -729,6 +889,10 @@ namespace NariLabs.Realtime
                 typeof(global::NariLabs.Realtime.RealtimePartialTranscriptMessage),
                 RealtimeCompletedTranscriptMessage,
                 typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage),
+                RealtimeWordTimestampsMessage,
+                typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage),
+                RealtimeWordTimestampsFailedMessage,
+                typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage),
                 RealtimeAudioCommittedMessage,
                 typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage),
                 RealtimeSpeechStartedMessage,
@@ -758,6 +922,8 @@ namespace NariLabs.Realtime
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeSessionUpdatedMessage?>.Default.Equals(RealtimeSessionUpdatedMessage, other.RealtimeSessionUpdatedMessage) &&
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimePartialTranscriptMessage?>.Default.Equals(RealtimePartialTranscriptMessage, other.RealtimePartialTranscriptMessage) &&
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage?>.Default.Equals(RealtimeCompletedTranscriptMessage, other.RealtimeCompletedTranscriptMessage) &&
+                global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeWordTimestampsMessage?>.Default.Equals(RealtimeWordTimestampsMessage, other.RealtimeWordTimestampsMessage) &&
+                global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage?>.Default.Equals(RealtimeWordTimestampsFailedMessage, other.RealtimeWordTimestampsFailedMessage) &&
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeAudioCommittedMessage?>.Default.Equals(RealtimeAudioCommittedMessage, other.RealtimeAudioCommittedMessage) &&
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeSpeechStartedMessage?>.Default.Equals(RealtimeSpeechStartedMessage, other.RealtimeSpeechStartedMessage) &&
                 global::System.Collections.Generic.EqualityComparer<global::NariLabs.Realtime.RealtimeSpeechStoppedMessage?>.Default.Equals(RealtimeSpeechStoppedMessage, other.RealtimeSpeechStoppedMessage) &&

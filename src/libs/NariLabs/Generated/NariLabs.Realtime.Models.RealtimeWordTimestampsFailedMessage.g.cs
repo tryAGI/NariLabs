@@ -1,0 +1,79 @@
+
+#nullable enable
+
+namespace NariLabs.Realtime
+{
+    /// <summary>
+    ///
+    /// </summary>
+    public sealed partial class RealtimeWordTimestampsFailedMessage
+    {
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::NariLabs.Realtime.JsonConverters.ChannelsRealtimeMessagesWordTimestampsFailedMessageTypeJsonConverter))]
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageType Type { get; set; }
+
+        /// <summary>
+        /// Unique identifier of this event.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("event_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string EventId { get; set; }
+
+        /// <summary>
+        /// Utterance identifier shared with the completed transcript.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("item_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ItemId { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageError Error { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RealtimeWordTimestampsFailedMessage" /> class.
+        /// </summary>
+        /// <param name="eventId">
+        /// Unique identifier of this event.
+        /// </param>
+        /// <param name="itemId">
+        /// Utterance identifier shared with the completed transcript.
+        /// </param>
+        /// <param name="error"></param>
+        /// <param name="type"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public RealtimeWordTimestampsFailedMessage(
+            string eventId,
+            string itemId,
+            global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageError error,
+            global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageType type)
+        {
+            this.Type = type;
+            this.EventId = eventId ?? throw new global::System.ArgumentNullException(nameof(eventId));
+            this.ItemId = itemId ?? throw new global::System.ArgumentNullException(nameof(itemId));
+            this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RealtimeWordTimestampsFailedMessage" /> class.
+        /// </summary>
+        public RealtimeWordTimestampsFailedMessage()
+        {
+        }
+
+    }
+}

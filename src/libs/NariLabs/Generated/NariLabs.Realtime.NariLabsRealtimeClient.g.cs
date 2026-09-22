@@ -283,6 +283,14 @@ namespace NariLabs.Realtime
         /// </summary>
         public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage>>? CompletedTranscriptMessageReceived;
         /// <summary>
+        /// Raised after a WordTimestampsMessage message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeWordTimestampsMessage>>? WordTimestampsMessageReceived;
+        /// <summary>
+        /// Raised after a WordTimestampsFailedMessage message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage>>? WordTimestampsFailedMessageReceived;
+        /// <summary>
         /// Raised after a AudioCommittedMessage message is deserialized.
         /// </summary>
         public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::NariLabs.Realtime.RealtimeAudioCommittedMessage>>? AudioCommittedMessageReceived;

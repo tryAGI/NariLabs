@@ -77,119 +77,155 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSessionUpdatedMessage? Type11 { get; set; }
+        public bool? Type11 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesPartialTranscriptMessageType? Type12 { get; set; }
+        public global::NariLabs.Realtime.RealtimeSessionUpdatedMessage? Type12 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimePartialTranscriptMessage? Type13 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesPartialTranscriptMessageType? Type13 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageType? Type14 { get; set; }
+        public global::NariLabs.Realtime.RealtimePartialTranscriptMessage? Type14 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageLanguage? Type15 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageType? Type15 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageCommitReason? Type16 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageLanguage? Type16 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageUsage? Type17 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageCommitReason? Type17 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage? Type18 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCompletedTranscriptMessageUsage? Type18 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommittedMessageType? Type19 { get; set; }
+        public global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage? Type19 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeAudioCommittedMessage? Type20 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsMessageType? Type20 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSpeechStartedMessageType? Type21 { get; set; }
+        public global::NariLabs.Realtime.WordTimestamp? Type21 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSpeechStartedMessage? Type22 { get; set; }
+        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage? Type22 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSpeechStoppedMessageType? Type23 { get; set; }
+        public global::System.Collections.Generic.IList<global::NariLabs.Realtime.WordTimestamp>? Type23 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSpeechStoppedMessage? Type24 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageType? Type24 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesErrorEventMessageType? Type25 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesWordTimestampsFailedMessageError? Type25 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesErrorEventMessageError? Type26 { get; set; }
+        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage? Type26 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeErrorEventMessage? Type27 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommittedMessageType? Type27 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCommitEmptyMessageType? Type28 { get; set; }
+        public global::NariLabs.Realtime.RealtimeAudioCommittedMessage? Type28 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeCommitEmptyMessage? Type29 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSpeechStartedMessageType? Type29 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdateMessageType? Type30 { get; set; }
+        public global::NariLabs.Realtime.RealtimeSpeechStartedMessage? Type30 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.SessionConfigModel? Type31 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSpeechStoppedMessageType? Type31 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.SessionConfigLanguage? Type32 { get; set; }
+        public global::NariLabs.Realtime.RealtimeSpeechStoppedMessage? Type32 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.SessionConfig? Type33 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesErrorEventMessageType? Type33 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSessionUpdateMessage? Type34 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesErrorEventMessageError? Type34 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioAppendMessageType? Type35 { get; set; }
+        public global::NariLabs.Realtime.RealtimeErrorEventMessage? Type35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeAudioAppendMessage? Type36 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesCommitEmptyMessageType? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommitMessageType? Type37 { get; set; }
+        public global::NariLabs.Realtime.RealtimeCommitEmptyMessage? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeAudioCommitMessage? Type38 { get; set; }
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdateMessageType? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.ServerEvent? Type39 { get; set; }
+        public global::NariLabs.Realtime.SessionConfigModel? Type39 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.SessionConfigLanguage? Type40 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.SessionConfig? Type41 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.RealtimeSessionUpdateMessage? Type42 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioAppendMessageType? Type43 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.RealtimeAudioAppendMessage? Type44 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.ChannelsRealtimeMessagesAudioCommitMessageType? Type45 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.RealtimeAudioCommitMessage? Type46 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::NariLabs.Realtime.ServerEvent? Type47 { get; set; }
 
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::NariLabs.Realtime.WordTimestamp>? ListType0 { get; set; }
     }
 }
