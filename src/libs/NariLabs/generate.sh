@@ -17,7 +17,7 @@ install_autosdk_cli
 rm -rf Generated
 
 fetch_spec https://docs.narilabs.com/openapi/text-to-speech.yaml -o openapi.yaml
-fetch_spec https://docs.narilabs.com/asyncapi.yaml -o asyncapi-source.yaml
+fetch_spec https://docs.narilabs.com/asyncapi/speech-to-text.yaml -o asyncapi-source.yaml
 
 python3 -c "import yaml" 2>/dev/null || \
   python3 -m pip install --quiet --user --break-system-packages pyyaml
