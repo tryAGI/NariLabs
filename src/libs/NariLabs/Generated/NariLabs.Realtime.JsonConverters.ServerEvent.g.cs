@@ -486,61 +486,61 @@ namespace NariLabs.Realtime.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeSessionUpdatedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeSessionUpdatedMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeSessionUpdatedMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeSessionUpdatedMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeSessionUpdatedMessage(), typeInfo);
             }
             else if (value.IsRealtimePartialTranscriptMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimePartialTranscriptMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimePartialTranscriptMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimePartialTranscriptMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimePartialTranscriptMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimePartialTranscriptMessage(), typeInfo);
             }
             else if (value.IsRealtimeCompletedTranscriptMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeCompletedTranscriptMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeCompletedTranscriptMessage(), typeInfo);
             }
             else if (value.IsRealtimeWordTimestampsMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeWordTimestampsMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeWordTimestampsMessage(), typeInfo);
             }
             else if (value.IsRealtimeWordTimestampsFailedMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeWordTimestampsFailedMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeWordTimestampsFailedMessage(), typeInfo);
             }
             else if (value.IsRealtimeAudioCommittedMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeAudioCommittedMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeAudioCommittedMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeAudioCommittedMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeAudioCommittedMessage(), typeInfo);
             }
             else if (value.IsRealtimeSpeechStartedMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeSpeechStartedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeSpeechStartedMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeSpeechStartedMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeSpeechStartedMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeSpeechStartedMessage(), typeInfo);
             }
             else if (value.IsRealtimeSpeechStoppedMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeSpeechStoppedMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeSpeechStoppedMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeSpeechStoppedMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeSpeechStoppedMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeSpeechStoppedMessage(), typeInfo);
             }
             else if (value.IsRealtimeErrorEventMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeErrorEventMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeErrorEventMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeErrorEventMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeErrorEventMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeErrorEventMessage(), typeInfo);
             }
             else if (value.IsRealtimeCommitEmptyMessage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::NariLabs.Realtime.RealtimeCommitEmptyMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::NariLabs.Realtime.RealtimeCommitEmptyMessage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::NariLabs.Realtime.RealtimeCommitEmptyMessage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RealtimeCommitEmptyMessage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRealtimeCommitEmptyMessage(), typeInfo);
             }
         }
     }
