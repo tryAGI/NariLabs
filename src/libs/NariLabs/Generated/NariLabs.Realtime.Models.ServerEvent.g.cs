@@ -42,8 +42,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSessionUpdatedMessage PickRealtimeSessionUpdatedMessage() => IsRealtimeSessionUpdatedMessage
-            ? RealtimeSessionUpdatedMessage!
+        public global::NariLabs.Realtime.RealtimeSessionUpdatedMessage PickRealtimeSessionUpdatedMessage() => RealtimeSessionUpdatedMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeSessionUpdatedMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimePartialTranscriptMessage PickRealtimePartialTranscriptMessage() => IsRealtimePartialTranscriptMessage
-            ? RealtimePartialTranscriptMessage!
+        public global::NariLabs.Realtime.RealtimePartialTranscriptMessage PickRealtimePartialTranscriptMessage() => RealtimePartialTranscriptMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimePartialTranscriptMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage PickRealtimeCompletedTranscriptMessage() => IsRealtimeCompletedTranscriptMessage
-            ? RealtimeCompletedTranscriptMessage!
+        public global::NariLabs.Realtime.RealtimeCompletedTranscriptMessage PickRealtimeCompletedTranscriptMessage() => RealtimeCompletedTranscriptMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeCompletedTranscriptMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage PickRealtimeWordTimestampsMessage() => IsRealtimeWordTimestampsMessage
-            ? RealtimeWordTimestampsMessage!
+        public global::NariLabs.Realtime.RealtimeWordTimestampsMessage PickRealtimeWordTimestampsMessage() => RealtimeWordTimestampsMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeWordTimestampsMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage PickRealtimeWordTimestampsFailedMessage() => IsRealtimeWordTimestampsFailedMessage
-            ? RealtimeWordTimestampsFailedMessage!
+        public global::NariLabs.Realtime.RealtimeWordTimestampsFailedMessage PickRealtimeWordTimestampsFailedMessage() => RealtimeWordTimestampsFailedMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeWordTimestampsFailedMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -227,8 +227,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeAudioCommittedMessage PickRealtimeAudioCommittedMessage() => IsRealtimeAudioCommittedMessage
-            ? RealtimeAudioCommittedMessage!
+        public global::NariLabs.Realtime.RealtimeAudioCommittedMessage PickRealtimeAudioCommittedMessage() => RealtimeAudioCommittedMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeAudioCommittedMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -264,8 +264,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSpeechStartedMessage PickRealtimeSpeechStartedMessage() => IsRealtimeSpeechStartedMessage
-            ? RealtimeSpeechStartedMessage!
+        public global::NariLabs.Realtime.RealtimeSpeechStartedMessage PickRealtimeSpeechStartedMessage() => RealtimeSpeechStartedMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeSpeechStartedMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -301,8 +301,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeSpeechStoppedMessage PickRealtimeSpeechStoppedMessage() => IsRealtimeSpeechStoppedMessage
-            ? RealtimeSpeechStoppedMessage!
+        public global::NariLabs.Realtime.RealtimeSpeechStoppedMessage PickRealtimeSpeechStoppedMessage() => RealtimeSpeechStoppedMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeSpeechStoppedMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -338,8 +338,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeErrorEventMessage PickRealtimeErrorEventMessage() => IsRealtimeErrorEventMessage
-            ? RealtimeErrorEventMessage!
+        public global::NariLabs.Realtime.RealtimeErrorEventMessage PickRealtimeErrorEventMessage() => RealtimeErrorEventMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeErrorEventMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -375,8 +375,8 @@ namespace NariLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::NariLabs.Realtime.RealtimeCommitEmptyMessage PickRealtimeCommitEmptyMessage() => IsRealtimeCommitEmptyMessage
-            ? RealtimeCommitEmptyMessage!
+        public global::NariLabs.Realtime.RealtimeCommitEmptyMessage PickRealtimeCommitEmptyMessage() => RealtimeCommitEmptyMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RealtimeCommitEmptyMessage' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -697,45 +697,45 @@ namespace NariLabs.Realtime
                 Validate();
             }
 
-            if (IsRealtimeSessionUpdatedMessage && realtimeSessionUpdatedMessage != null)
+            if (RealtimeSessionUpdatedMessage is { } __value0 && realtimeSessionUpdatedMessage != null)
             {
-                return realtimeSessionUpdatedMessage(RealtimeSessionUpdatedMessage!);
+                return realtimeSessionUpdatedMessage(__value0);
             }
-            else if (IsRealtimePartialTranscriptMessage && realtimePartialTranscriptMessage != null)
+            else if (RealtimePartialTranscriptMessage is { } __value1 && realtimePartialTranscriptMessage != null)
             {
-                return realtimePartialTranscriptMessage(RealtimePartialTranscriptMessage!);
+                return realtimePartialTranscriptMessage(__value1);
             }
-            else if (IsRealtimeCompletedTranscriptMessage && realtimeCompletedTranscriptMessage != null)
+            else if (RealtimeCompletedTranscriptMessage is { } __value2 && realtimeCompletedTranscriptMessage != null)
             {
-                return realtimeCompletedTranscriptMessage(RealtimeCompletedTranscriptMessage!);
+                return realtimeCompletedTranscriptMessage(__value2);
             }
-            else if (IsRealtimeWordTimestampsMessage && realtimeWordTimestampsMessage != null)
+            else if (RealtimeWordTimestampsMessage is { } __value3 && realtimeWordTimestampsMessage != null)
             {
-                return realtimeWordTimestampsMessage(RealtimeWordTimestampsMessage!);
+                return realtimeWordTimestampsMessage(__value3);
             }
-            else if (IsRealtimeWordTimestampsFailedMessage && realtimeWordTimestampsFailedMessage != null)
+            else if (RealtimeWordTimestampsFailedMessage is { } __value4 && realtimeWordTimestampsFailedMessage != null)
             {
-                return realtimeWordTimestampsFailedMessage(RealtimeWordTimestampsFailedMessage!);
+                return realtimeWordTimestampsFailedMessage(__value4);
             }
-            else if (IsRealtimeAudioCommittedMessage && realtimeAudioCommittedMessage != null)
+            else if (RealtimeAudioCommittedMessage is { } __value5 && realtimeAudioCommittedMessage != null)
             {
-                return realtimeAudioCommittedMessage(RealtimeAudioCommittedMessage!);
+                return realtimeAudioCommittedMessage(__value5);
             }
-            else if (IsRealtimeSpeechStartedMessage && realtimeSpeechStartedMessage != null)
+            else if (RealtimeSpeechStartedMessage is { } __value6 && realtimeSpeechStartedMessage != null)
             {
-                return realtimeSpeechStartedMessage(RealtimeSpeechStartedMessage!);
+                return realtimeSpeechStartedMessage(__value6);
             }
-            else if (IsRealtimeSpeechStoppedMessage && realtimeSpeechStoppedMessage != null)
+            else if (RealtimeSpeechStoppedMessage is { } __value7 && realtimeSpeechStoppedMessage != null)
             {
-                return realtimeSpeechStoppedMessage(RealtimeSpeechStoppedMessage!);
+                return realtimeSpeechStoppedMessage(__value7);
             }
-            else if (IsRealtimeErrorEventMessage && realtimeErrorEventMessage != null)
+            else if (RealtimeErrorEventMessage is { } __value8 && realtimeErrorEventMessage != null)
             {
-                return realtimeErrorEventMessage(RealtimeErrorEventMessage!);
+                return realtimeErrorEventMessage(__value8);
             }
-            else if (IsRealtimeCommitEmptyMessage && realtimeCommitEmptyMessage != null)
+            else if (RealtimeCommitEmptyMessage is { } __value9 && realtimeCommitEmptyMessage != null)
             {
-                return realtimeCommitEmptyMessage(RealtimeCommitEmptyMessage!);
+                return realtimeCommitEmptyMessage(__value9);
             }
 
             return default(TResult);
@@ -771,45 +771,45 @@ namespace NariLabs.Realtime
                 Validate();
             }
 
-            if (IsRealtimeSessionUpdatedMessage)
+            if (RealtimeSessionUpdatedMessage is { } __value0)
             {
-                realtimeSessionUpdatedMessage?.Invoke(RealtimeSessionUpdatedMessage!);
+                realtimeSessionUpdatedMessage?.Invoke(__value0);
             }
-            else if (IsRealtimePartialTranscriptMessage)
+            else if (RealtimePartialTranscriptMessage is { } __value1)
             {
-                realtimePartialTranscriptMessage?.Invoke(RealtimePartialTranscriptMessage!);
+                realtimePartialTranscriptMessage?.Invoke(__value1);
             }
-            else if (IsRealtimeCompletedTranscriptMessage)
+            else if (RealtimeCompletedTranscriptMessage is { } __value2)
             {
-                realtimeCompletedTranscriptMessage?.Invoke(RealtimeCompletedTranscriptMessage!);
+                realtimeCompletedTranscriptMessage?.Invoke(__value2);
             }
-            else if (IsRealtimeWordTimestampsMessage)
+            else if (RealtimeWordTimestampsMessage is { } __value3)
             {
-                realtimeWordTimestampsMessage?.Invoke(RealtimeWordTimestampsMessage!);
+                realtimeWordTimestampsMessage?.Invoke(__value3);
             }
-            else if (IsRealtimeWordTimestampsFailedMessage)
+            else if (RealtimeWordTimestampsFailedMessage is { } __value4)
             {
-                realtimeWordTimestampsFailedMessage?.Invoke(RealtimeWordTimestampsFailedMessage!);
+                realtimeWordTimestampsFailedMessage?.Invoke(__value4);
             }
-            else if (IsRealtimeAudioCommittedMessage)
+            else if (RealtimeAudioCommittedMessage is { } __value5)
             {
-                realtimeAudioCommittedMessage?.Invoke(RealtimeAudioCommittedMessage!);
+                realtimeAudioCommittedMessage?.Invoke(__value5);
             }
-            else if (IsRealtimeSpeechStartedMessage)
+            else if (RealtimeSpeechStartedMessage is { } __value6)
             {
-                realtimeSpeechStartedMessage?.Invoke(RealtimeSpeechStartedMessage!);
+                realtimeSpeechStartedMessage?.Invoke(__value6);
             }
-            else if (IsRealtimeSpeechStoppedMessage)
+            else if (RealtimeSpeechStoppedMessage is { } __value7)
             {
-                realtimeSpeechStoppedMessage?.Invoke(RealtimeSpeechStoppedMessage!);
+                realtimeSpeechStoppedMessage?.Invoke(__value7);
             }
-            else if (IsRealtimeErrorEventMessage)
+            else if (RealtimeErrorEventMessage is { } __value8)
             {
-                realtimeErrorEventMessage?.Invoke(RealtimeErrorEventMessage!);
+                realtimeErrorEventMessage?.Invoke(__value8);
             }
-            else if (IsRealtimeCommitEmptyMessage)
+            else if (RealtimeCommitEmptyMessage is { } __value9)
             {
-                realtimeCommitEmptyMessage?.Invoke(RealtimeCommitEmptyMessage!);
+                realtimeCommitEmptyMessage?.Invoke(__value9);
             }
         }
 
@@ -834,45 +834,45 @@ namespace NariLabs.Realtime
                 Validate();
             }
 
-            if (IsRealtimeSessionUpdatedMessage)
+            if (RealtimeSessionUpdatedMessage is { } __value0)
             {
-                realtimeSessionUpdatedMessage?.Invoke(RealtimeSessionUpdatedMessage!);
+                realtimeSessionUpdatedMessage?.Invoke(__value0);
             }
-            else if (IsRealtimePartialTranscriptMessage)
+            else if (RealtimePartialTranscriptMessage is { } __value1)
             {
-                realtimePartialTranscriptMessage?.Invoke(RealtimePartialTranscriptMessage!);
+                realtimePartialTranscriptMessage?.Invoke(__value1);
             }
-            else if (IsRealtimeCompletedTranscriptMessage)
+            else if (RealtimeCompletedTranscriptMessage is { } __value2)
             {
-                realtimeCompletedTranscriptMessage?.Invoke(RealtimeCompletedTranscriptMessage!);
+                realtimeCompletedTranscriptMessage?.Invoke(__value2);
             }
-            else if (IsRealtimeWordTimestampsMessage)
+            else if (RealtimeWordTimestampsMessage is { } __value3)
             {
-                realtimeWordTimestampsMessage?.Invoke(RealtimeWordTimestampsMessage!);
+                realtimeWordTimestampsMessage?.Invoke(__value3);
             }
-            else if (IsRealtimeWordTimestampsFailedMessage)
+            else if (RealtimeWordTimestampsFailedMessage is { } __value4)
             {
-                realtimeWordTimestampsFailedMessage?.Invoke(RealtimeWordTimestampsFailedMessage!);
+                realtimeWordTimestampsFailedMessage?.Invoke(__value4);
             }
-            else if (IsRealtimeAudioCommittedMessage)
+            else if (RealtimeAudioCommittedMessage is { } __value5)
             {
-                realtimeAudioCommittedMessage?.Invoke(RealtimeAudioCommittedMessage!);
+                realtimeAudioCommittedMessage?.Invoke(__value5);
             }
-            else if (IsRealtimeSpeechStartedMessage)
+            else if (RealtimeSpeechStartedMessage is { } __value6)
             {
-                realtimeSpeechStartedMessage?.Invoke(RealtimeSpeechStartedMessage!);
+                realtimeSpeechStartedMessage?.Invoke(__value6);
             }
-            else if (IsRealtimeSpeechStoppedMessage)
+            else if (RealtimeSpeechStoppedMessage is { } __value7)
             {
-                realtimeSpeechStoppedMessage?.Invoke(RealtimeSpeechStoppedMessage!);
+                realtimeSpeechStoppedMessage?.Invoke(__value7);
             }
-            else if (IsRealtimeErrorEventMessage)
+            else if (RealtimeErrorEventMessage is { } __value8)
             {
-                realtimeErrorEventMessage?.Invoke(RealtimeErrorEventMessage!);
+                realtimeErrorEventMessage?.Invoke(__value8);
             }
-            else if (IsRealtimeCommitEmptyMessage)
+            else if (RealtimeCommitEmptyMessage is { } __value9)
             {
-                realtimeCommitEmptyMessage?.Invoke(RealtimeCommitEmptyMessage!);
+                realtimeCommitEmptyMessage?.Invoke(__value9);
             }
         }
 
