@@ -94,7 +94,7 @@ namespace NariLabs.Realtime
             typeof(global::NariLabs.Realtime.JsonConverters.ServerEventJsonConverter),
         })]
     #pragma warning restore CS3016
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.RealtimeSourceGenerationContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdatedMessageType), TypeInfoPropertyName = "ChannelsRealtimeMessagesSessionUpdatedMessageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdatedMessageSessionLimits))]
