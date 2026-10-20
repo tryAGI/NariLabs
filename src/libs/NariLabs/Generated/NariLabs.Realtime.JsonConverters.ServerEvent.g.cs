@@ -140,6 +140,10 @@ namespace NariLabs.Realtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 1)
                 {
@@ -154,6 +158,10 @@ namespace NariLabs.Realtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 2)
@@ -170,6 +178,10 @@ namespace NariLabs.Realtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 3)
                 {
@@ -184,6 +196,10 @@ namespace NariLabs.Realtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 4)
@@ -200,6 +216,10 @@ namespace NariLabs.Realtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 5)
                 {
@@ -214,6 +234,10 @@ namespace NariLabs.Realtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 6)
@@ -230,6 +254,10 @@ namespace NariLabs.Realtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 7)
                 {
@@ -244,6 +272,10 @@ namespace NariLabs.Realtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 8)
@@ -260,6 +292,10 @@ namespace NariLabs.Realtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 9)
                 {
@@ -274,6 +310,10 @@ namespace NariLabs.Realtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
             }
@@ -293,6 +333,10 @@ namespace NariLabs.Realtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
@@ -309,6 +353,10 @@ namespace NariLabs.Realtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -327,6 +375,10 @@ namespace NariLabs.Realtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
@@ -343,6 +395,10 @@ namespace NariLabs.Realtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -361,6 +417,10 @@ namespace NariLabs.Realtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
@@ -377,6 +437,10 @@ namespace NariLabs.Realtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -395,6 +459,10 @@ namespace NariLabs.Realtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
@@ -411,6 +479,10 @@ namespace NariLabs.Realtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -429,6 +501,10 @@ namespace NariLabs.Realtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (realtimeSessionUpdatedMessage == null && realtimePartialTranscriptMessage == null && realtimeCompletedTranscriptMessage == null && realtimeWordTimestampsMessage == null && realtimeWordTimestampsFailedMessage == null && realtimeAudioCommittedMessage == null && realtimeSpeechStartedMessage == null && realtimeSpeechStoppedMessage == null && realtimeErrorEventMessage == null && realtimeCommitEmptyMessage == null)
@@ -445,6 +521,10 @@ namespace NariLabs.Realtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
