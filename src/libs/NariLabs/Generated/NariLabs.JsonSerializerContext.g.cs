@@ -40,6 +40,7 @@ namespace NariLabs
     #pragma warning restore CS3016
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.JsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.VoiceListObject), TypeInfoPropertyName = "VoiceListObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.VoiceObject), TypeInfoPropertyName = "VoiceObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::NariLabs.VoiceAccent), TypeInfoPropertyName = "VoiceAccent2")]
