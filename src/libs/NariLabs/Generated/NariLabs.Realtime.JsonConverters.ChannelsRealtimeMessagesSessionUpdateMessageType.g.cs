@@ -18,7 +18,7 @@ namespace NariLabs.Realtime.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdateMessageTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdateMessageTypeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown discriminator value '{stringValue}' for global::NariLabs.Realtime.ChannelsRealtimeMessagesSessionUpdateMessageType.");
                     }
 
                     break;
